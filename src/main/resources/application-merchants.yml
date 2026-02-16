@@ -1,0 +1,28 @@
+merchants:
+  library:
+    # Mobile Lending & Finance
+    "MSHWARI": "Loans and Savings"
+    "KCB MPESA": "Loans and Savings"
+    "TALA": "Loans and Savings"
+    "BRANCH": "Loans and Savings"
+    
+    # Internet & Utilities
+    "VILCOM": "Wifi"
+    "ZUKU": "Wifi"
+    "SAFACOM": "Internet"
+    "KPLC": "Utilities"
+    
+    # Transport
+    "UBER": "Transport"
+    "BOLT": "Transport"
+    "LITTLE CAB": "Transport"
+    
+    # Shopping & Groceries
+    "CARREFOUR": "Shopping"
+    "NAIVAS": "Shopping"
+    "QUICKMART": "Shopping"
+    
+    # Food & Dining
+    "GLOVO": "Food"
+    "JUMIA FOOD": "Food"
+    "KFC": "Food"
