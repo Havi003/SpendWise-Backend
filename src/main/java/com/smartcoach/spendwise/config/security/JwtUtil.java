@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 
 @Component
 public class JwtUtil {
@@ -22,6 +23,13 @@ public class JwtUtil {
     public String getSecret() {
         return secret;
     }
+
+@PostConstruct
+public void logSecret() {
+    System.out.println("JWT Secret Loaded: " + secret);
+    System.out.println("JWT Expiration: " + expirationMillis);
+}
+
 
 public String generateToken(String email, UUID userId, boolean onboarded) {
 

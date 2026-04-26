@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "merchants")
 
 public class MerchantRulesConfig {
-// Initialize to an empty map to prevent NullPointerExceptions 
+    // Initialize to an empty map to prevent NullPointerExceptions 
     // if the YAML fails to load or is empty
     private Map<String, String> library = new HashMap<>();
 

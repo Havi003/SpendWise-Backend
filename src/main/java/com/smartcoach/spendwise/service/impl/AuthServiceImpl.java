@@ -87,14 +87,19 @@ public class AuthServiceImpl implements AuthService {
     public Mono<WsResponse<LoginResponse>> login(LoginRequest request) {
 
         return userRepository.findByEmail(request.getEmail())
-            .switchIfEmpty(Mono.error(new BusinessException("Invalid email or password")))
+            .switchIfEmpty(Mono.defer(() -> {
+                System.out.println("Login failed: User not found for email: " + request.getEmail());
+                return Mono.error(new BusinessException("Invalid email or password"));
+            }))
             .flatMap(user -> {
 
                 if (!"email".equals(user.getAuthProvider())) {
+                    System.out.println("Login failed: User " + user.getEmail() + " tried to login with email but registered with " + user.getAuthProvider());
                     return Mono.error(new BusinessException("Please login using Google"));
                 }
 
                 if (!passwordEncoder.matches(request.getPassword(), user.getPasswordHash())) {
+                    System.out.println("Login failed: Incorrect password for user: " + user.getEmail());
                     return Mono.error(new BusinessException("Invalid email or password"));
                 }
 

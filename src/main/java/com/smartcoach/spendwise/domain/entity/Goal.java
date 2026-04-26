@@ -1,39 +1,31 @@
 package com.smartcoach.spendwise.domain.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Table(schema = "spendwise", name = "accounts")
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class Account {
+@Table(schema ="spendwise", name = "goal")
+public class Goal {
 
     @Id
     private UUID id;
 
     private UUID userId;
+    private String name;
 
-    private String accountName;
+    private BigDecimal targetAmount;
+    private BigDecimal currentAmount;
 
-    private String accountType;
-
-    private BigDecimal balance;
-
-    private BigDecimal startingBalance;
+    private LocalDate targetDate;
+    private String status;
 
     private OffsetDateTime createdAt;
-
     private OffsetDateTime updatedAt;
-
 }
